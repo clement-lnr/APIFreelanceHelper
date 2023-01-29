@@ -1,0 +1,79 @@
+--- Routes ---
+auth.route: (Login, Register)
+mission.route (search, consultation)
+user.route: (Profil)
+
+--- middleware ---
+VerifyToken
+verifyIsAdmin
+errorsHandling
+
+--- Modeles ---
+User:
+    lastName
+    firstName
+    password
+    address
+    city
+    postalCode
+    phoneNumber
+    mail
+    isAdmin
+    type: freelance, entreprise
+
+freelance:
+    userId
+    dailyPrice
+    experienceYears
+    skills
+    job
+
+entreprise
+    userId
+    name
+    status (SAS, SASU, SARL, EURL)
+    siretNumber (9 chiffres)
+    headOffice (adresse, ville, code postal)
+
+Mission:
+    title
+    description
+    job
+    skills
+    start_date
+    end_date
+    total_amount
+    status (inProgress || ended)
+
+
+USER freelance, entreprise
+
+1 seul admin
+JWT toute fonctionnalités sauf recherche freelance, consultation freelance
+envoi mail après creation de compte
+entreprise -> créer mission
+freelance -> accepter ou refuser proposition
+entreprise peut selectionner max 3 freelance/mission
+Si freelance decline mission, alors freelance retiré de la mission
+si entreprise propose mission a freelance, alors freelance recoit mail
+si freelance accepte || decline proposition, alors entreprise recoit mail
+utilisateur peut: modifier informations de sont profil, modifier mot de passe, réinitialiser son mot de passe
+entreprise peut: supprimer sa mission, modifier sa mission, créer une mission
+admin peut: consulter/supprimer/modifier des utilisateurs, consulter/Créer/supprimer/modifier des compétences & des métiers, consulter les missions et la proposition rattachée à un freelance
+
+
+
+entreprise filtre:
+    - tarif/jour min & max
+    - métiers
+        compétences
+        années d’expérience min & max
+barre de recherche:
+    - Nom
+    - Prénom
+    - Ville
+    - Métiers
+    - Compétences
+    (multiples recherche ex: Javascript Paris)
+
+compétence peut être rattachée à un ou plusieurs métiers (ex: développeur frontend, développeur backend & Javascript)
