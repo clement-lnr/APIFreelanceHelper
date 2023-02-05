@@ -10,16 +10,16 @@ errorsHandling
 
 --- Modeles ---
 User:
-    lastName
     firstName
+    lastName
     password
     address
     city
-    postalCode
+    zipCode
     phoneNumber
     mail
     isAdmin
-    type: freelance, entreprise
+    type: freelance, entreprise, admin
 
 freelance:
     userId
@@ -40,9 +40,9 @@ Mission:
     description
     job
     skills
-    start_date
-    end_date
-    total_amount
+    startDate
+    endDate
+    totalAmount
     status (inProgress || ended)
 
 
