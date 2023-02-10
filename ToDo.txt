@@ -1,7 +1,13 @@
 --- Routes ---
 auth.route: (Login, Register)
-mission.route (search, consultation)
+search.route (freelanceSearch, freelanceDetails, )
 user.route: (Profil)
+
+// createMission(entreprise)
+//MissionReceived(freelance)
+//myMissions(entreprise)
+//MissionsAdmin
+//UsersAdmin
 
 --- middleware ---
 VerifyToken
@@ -17,7 +23,7 @@ User:
     city
     zipCode
     phoneNumber
-    mail
+    email
     isAdmin
     type: freelance, entreprise, admin
 
