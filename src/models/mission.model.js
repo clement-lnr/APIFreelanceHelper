@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 
 const missionSchema = mongoose.Schema({
+    creatorId: {
+        type: String,
+        required: true,
+    },
     title: {
         type: String,
         required: true,
-        lowercase: true,
         maxLength: 50,
         minLength: 2,
     },
@@ -12,36 +15,14 @@ const missionSchema = mongoose.Schema({
         type: String,
         required: true,
         lowercase: true,
-        maxLength: 50,
-        minLength: 2,
-    },
-    job: {
-        type: String,
-        required: true,
-        lowercase: true,
-        maxLength: 50,
-        minLength: 2,
-    },
-    skills: {
-        type: String,
-        required: true,
-        lowercase: true,
-        maxLength: 50,
-        minLength: 2,
     },
     startDate: {
         type: String,
         required: true,
-        lowercase: true,
-        maxLength: 50,
-        minLength: 2,
     },
     endDate: {
         type: String,
         required: true,
-        lowercase: true,
-        maxLength: 50,
-        minLength: 2,
     },
     totalAmount: {
         type: String,
@@ -56,7 +37,10 @@ const missionSchema = mongoose.Schema({
         lowercase: true,
         maxLength: 50,
         minLength: 2,
-    }
+    },
+    Collaborators: [
+        { id : String  }
+    ]
 },
     {
         timestamps: true
