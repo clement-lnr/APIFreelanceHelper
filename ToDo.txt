@@ -1,9 +1,4 @@
---- Routes ---
-auth.route: (Login, Register)
-search.route (freelanceSearch, freelanceDetails, )
-user.route: (Profil)
-
-// createMission(entreprise)
+//createMission(entreprise)
 //MissionReceived(freelance)
 //myMissions(entreprise)
 //MissionsAdmin
@@ -67,6 +62,11 @@ utilisateur peut: modifier informations de sont profil, modifier mot de passe, r
 entreprise peut: supprimer sa mission, modifier sa mission, créer une mission
 admin peut: consulter/supprimer/modifier des utilisateurs, consulter/Créer/supprimer/modifier des compétences & des métiers, consulter les missions et la proposition rattachée à un freelance
 
+
+proposition: accepter ou refuser + max 3 freelances
+modifier supprimer mdp
+mails
+admin
 
 
 entreprise filtre:

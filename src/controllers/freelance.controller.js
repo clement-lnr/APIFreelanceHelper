@@ -31,8 +31,8 @@ exports.getFreelance = (req, res) => {
     })
 }
 
-exports.getFreelanceDetails = (req, res) => {
-    Freelance.findOne({userId: req.params.id})
+exports.getFreelanceDetails = async (req, res) => {
+    Freelance.findOne({ userId: req.params.id })
     .then(freelance => {
         res.send(freelance);
     })

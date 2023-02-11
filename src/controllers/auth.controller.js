@@ -24,6 +24,7 @@ exports.register = async (req, res, next) => {
             let userToken = jwt.sign(
                 {
                     id: user._id,
+                    userType: user.type,
                     isAdmin: user.isAdmin
                 }, process.env.JWT_SECRET_KEY
             );

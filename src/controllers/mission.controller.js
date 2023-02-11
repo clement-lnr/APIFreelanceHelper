@@ -11,16 +11,55 @@ exports.createMission = async (req, res) => {
         status: req.body.status
     });
 
-    try{
-        await newMission.save()
-        .then((mission) => {
-            res.send({
-                message: "Mission registered",
-                mission: mission
-            });
+    if(req.userToken.userType == 'entreprise') {
+        try{
+            await newMission.save()
+            .then((mission) => {
+                res.send({
+                    message: "Mission registered",
+                    mission: mission
+                });
+            })
+        } catch (err) {
+            res.status(400).send(err);
+        }
+    } else {
+        res.status(401).send({
+            message: "User must be an entreprise",
         })
-    } catch (err) {
-        res.status(400).send(err);
     }
 }
 
+
+exports.getMission = async (req, res) => {
+    if(req.userToken.userType == 'entreprise') {
+        Mission.find({creatorId: req.userToken.id})
+        .then(mission => {
+            res.send(mission);
+        })
+        .catch(err => {
+            res.status(400).send(err);
+        })
+    } else {
+        res.status(401).send({
+            message: "User must be an entreprise",
+        })
+    }
+}
+
+//array issue
+exports.missionList = async (req, res) => {
+    if(req.userToken.userType == 'freelance') {
+        Mission.find({Collaborators: req.userToken.id})
+        .then(mission => {
+            res.send(mission);
+        })
+        .catch(err => {
+            res.status(400).send(err);
+        })
+    } else {
+        res.status(401).send({
+            message: "User must be an entreprise",
+        })
+    }
+}
